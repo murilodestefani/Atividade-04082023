@@ -1,16 +1,21 @@
 console.log(`15. Escreva um algoritmo que solicite um número inteiro positivo ao usuário e verifique se ele é um número primo. Um número primo é aquele que é divisível apenas por 1 e por ele mesmo;`);
 
-let numero;
+let numero, x = 1, divisor = 0;
 
 do {
     numero = prompt (`Digite um número`);
 
-    if (numero % 1 == 0 && numero % numero == 0) {
-        console.log(`O número ${numero} é primo.`);
-        break;
+} while (isNaN(numero) || numero < 0);
+
+while (x <= numero) {
+    if (numero % x == 0) {
+        divisor++;
     }
-    if (numero % 1 != 0 && numero % numero != 0) {
-        console.log(`O número ${numero} não é primo.`);
-        break;
-    }
-} while (isNaN(numero));
+    x++;
+}
+
+if (divisor == 2) {
+    console.log(`${numero} é primo.`);
+} else {
+    console.log(`${numero} não é primo.`);
+}
